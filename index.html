@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Website Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      height: 100vh;
+    }
+    .sidebar {
+      width: 280px;
+      background: #020617;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    .sidebar h2 {
+      margin-top: 0;
+    }
+    .sidebar button {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .preview {
+      flex: 1;
+      background: white;
+      color: black;
+      padding: 20px;
+      overflow: auto;
+    }
+    .block {
+      border: 2px dashed #94a3b8;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Website Builder</h2>
+    <button onclick="addText()">Add Text</button>
+    <button onclick="addButton()">Add Button</button>
+    <button onclick="addSection()">Add Section</button>
+  </div>
+
+  <div class="preview" id="preview">
+    <h1>Your Website Preview</h1>
+  </div>
+
+  <script>
+    function addText() {
+      const div = document.createElement("div");
+      div.className = "block";
+      div.contentEditable = true;
+      div.innerText = "Edit this text";
+      document.getElementById("preview").appendChild(div);
+    }
+
+    function addButton() {
+      const btn = document.createElement("button");
+      btn.innerText = "Click Me";
+      btn.style.padding = "12px";
+      btn.style.margin = "10px 0";
+      document.getElementById("preview").appendChild(btn);
+    }
+
+    function addSection() {
+      const section = document.createElement("div");
+      section.className = "block";
+      section.innerText = "New Section";
+      document.getElementById("preview").appendChild(section);
+    }
+  </script>
+
+</body>
+</html>
